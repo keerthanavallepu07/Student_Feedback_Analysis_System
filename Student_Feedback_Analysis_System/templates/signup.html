@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block content %}<section class="form-page"><div class="section-heading"><div class="eyebrow">STUDENT REGISTRATION</div><h2>Let's get you started.</h2><p>Your enrollment details are checked against the approved college roster.</p></div>
+<form class="form-card wide" method="post"><div class="form-grid">
+<label>Full name<input name="full_name" required></label><label>Email<input name="email" type="email" required></label><label>Username<input name="username" required></label><label>Department<input name="department" placeholder="e.g. Computer Science" required></label>
+<label>College<select name="college_id" required><option value="">Select college</option>{% for c in colleges %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}</select></label>
+<label>Campus<select name="campus_id" required><option value="">Select campus</option>{% for c in campuses %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}</select></label>
+<label>Roll number<input name="roll_no" required></label><label>Branch<input name="branch" placeholder="e.g. CSE" required></label>
+<label>Degree year<input name="year" type="number" min="1" max="8" required></label><label>Section<input name="section" required></label>
+<label>Password<div class="password-wrap"><input id="password" type="password" name="password" minlength="8" required><button type="button" class="toggle" onclick="togglePassword('password')">Show</button></div></label>
+<label>Confirm password<div class="password-wrap"><input id="confirm" type="password" name="confirm_password" required><button type="button" class="toggle" onclick="togglePassword('confirm')">Show</button></div></label></div>
+<p class="notice">🔒 Your roll number is used only for enrollment verification and is not displayed in feedback reports.</p><button class="btn primary full" type="submit">Create student account <span>→</span></button></form></section>{% endblock %}{% block scripts %}<script src="{{ url_for('static',filename='js/app.js') }}"></script>{% endblock %}

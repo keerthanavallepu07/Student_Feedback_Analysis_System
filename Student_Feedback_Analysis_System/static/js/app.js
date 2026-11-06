@@ -1,0 +1,1 @@
+function togglePassword(id){const el=document.getElementById(id);if(!el)return;const show=el.type==="password";el.type=show?"text":"password";const btn=el.parentElement.querySelector(".toggle");if(btn)btn.textContent=show?"Hide":"Show";}
